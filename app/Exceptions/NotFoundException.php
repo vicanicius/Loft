@@ -5,9 +5,9 @@ namespace App\Exceptions;
 use Exception;
 use Illuminate\Http\Response;
 
-class StandardException extends Exception
+class NotFoundException extends Exception
 {
-    public function __construct($message, $code = Response::HTTP_BAD_REQUEST, Exception $previous = null)
+    public function __construct($message, $code = Response::HTTP_NOT_FOUND, Exception $previous = null)
     {
         parent::__construct($message, $code, $previous);
     }

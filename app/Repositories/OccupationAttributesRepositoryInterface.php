@@ -4,5 +4,5 @@ namespace App\Repositories;
 
 interface OccupationAttributesRepositoryInterface {
 
-    public function getIdByName(String $name);
+    public function getByName(String $name);
 }

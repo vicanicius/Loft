@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\BattleController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -14,8 +15,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-/* Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
-}); */
-
-Route::post('/user', [UserController::class, 'store']);
+Route::post('/user', [UserController::class, 'create'])->middleware('userValidation');
+Route::get('/user', [UserController::class, 'allUsers']);
+Route::get('/user/{id}', [UserController::class, 'getUser']);
+Route::post('/battle/{userId1}/{userId2}', [BattleController::class, 'battle'])->middleware('battleValidation');

@@ -14,7 +14,8 @@ class User extends Model
     protected $fillable = [
         'id',
         'name',
-        'occupation_attributes_id'
+        'occupation_attributes_id',
+        'life_points'
     ];
 
     public function occupationAttributes()

@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\UseCases\UserUseCase;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Validator;
 
 class UserController extends Controller
 {
@@ -12,21 +11,18 @@ class UserController extends Controller
         $this->userUseCase = $userUseCase;
     }
 
-    public function store(Request $request)
+    public function create(Request $request)
     {        
-        $validator = Validator::make($request->all(), [
-            'name' => 'required|regex:/^[a-zA-Z_]{4,15}$/',
-            'occupation' => 'exists:occupation_attributes,name'
-        ]);
+        return response($this->userUseCase->create($request));
+    }
 
-        if ($validator->fails()) {
-            foreach ($validator->errors()->all() as $message) {
-                $errors[] = $message;
-            }
+    public function allUsers()
+    {        
+        return response($this->userUseCase->allUsers());
+    }
 
-            return response()->json(["messages" => $errors]);
-        }
-
-        return response($this->userUseCase->store($request));
-    } 
+    public function getUser($userId)
+    {        
+        return response($this->userUseCase->getUserById($userId));
+    }
 }

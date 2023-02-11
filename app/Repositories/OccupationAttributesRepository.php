@@ -7,12 +7,12 @@ use Illuminate\Support\Facades\DB;
 
 class OccupationAttributesRepository implements OccupationAttributesRepositoryInterface
 {
-    public function getIdByName($name)
+    public function getByName($name)
     {
         $occupationAttributes = OccupationAttributes::firstWhere([
             'name' =>  $name
         ]);
 
-        return $occupationAttributes->getKey();
+        return $occupationAttributes;
     }
 }

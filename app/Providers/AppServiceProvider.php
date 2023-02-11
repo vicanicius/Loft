@@ -2,6 +2,8 @@
 
 namespace App\Providers;
 
+use App\Repositories\BattleRepository;
+use App\Repositories\BattleRepositoryInterface;
 use App\Repositories\OccupationAttributesRepository;
 use App\Repositories\OccupationAttributesRepositoryInterface;
 use App\Repositories\UserRepository;
@@ -19,6 +21,7 @@ class AppServiceProvider extends ServiceProvider
     {
         $this->app->bind(UserRepositoryInterface::class, UserRepository::class);
         $this->app->bind(OccupationAttributesRepositoryInterface::class, OccupationAttributesRepository::class);
+        $this->app->bind(BattleRepositoryInterface::class, BattleRepository::class);
     }
 
     /**

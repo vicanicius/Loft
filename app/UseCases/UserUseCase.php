@@ -11,8 +11,18 @@ class UserUseCase
         $this->userRepository = $userRepository;
     }
 
-    public function store(Request $request)
+    public function create(Request $request)
     {
-        return $this->userRepository->store($request);
+        return $this->userRepository->create($request);
+    }
+
+    public function allUsers()
+    {
+        return $this->userRepository->allUsers();
+    }
+
+    public function getUserById(int $userId)
+    {
+        return $this->userRepository->getUser($userId);
     }
 }

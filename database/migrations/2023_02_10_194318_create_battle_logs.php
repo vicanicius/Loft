@@ -13,14 +13,11 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('users', function (Blueprint $table) {
+        Schema::create('battle_logs', function (Blueprint $table) {
             $table->id();
-            $table->string('name', 15)->unique();
-            $table->integer('occupation_attributes_id');
-            $table->integer('life_points');
+            $table->char('log', 80);
+            $table->uuid('identifier');
             $table->timestamps();
-
-            $table->foreign('occupation_attributes_id')->references('id')->on('occupation_attributes');
         });
     }
 
@@ -31,6 +28,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('users');
+        Schema::dropIfExists('battle_logs');
     }
 };
