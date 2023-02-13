@@ -11,14 +11,15 @@ use Illuminate\Support\Facades\DB;
 
 class UserRepository implements UserRepositoryInterface
 {
-    public function __construct(private OccupationAttributesRepository $occupationAttributesRepository) {
+    public function __construct(
+        private OccupationAttributesRepository $occupationAttributesRepository
+    ) {
         $this->occupationAttributesRepository = $occupationAttributesRepository;
     }
 
     public function create(Request $request)
     {
         DB::beginTransaction();
-
         $occupation = $this->occupationAttributesRepository->getByName($request->occupation);
 
         try {

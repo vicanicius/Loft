@@ -20,6 +20,12 @@ Em seguidam, dentro do cotainer da aplicação:
 
 Utilizar a collection de Postman na raiz do projeto com as rotas já configuradas.
 
-## Decisões tomadas
+Obs.: Caso dê problema com o Sqlite, rode o seguinte comando dentro do container:
 
-- No problema não estava claro como trabalhar sem um banco de dados, então decidi por utilizar o Sqlite, logo que o mesmo funciona em memoria.
+`php artisan config:cache`
+
+## Testes
+
+Rode o seguinte comando dentro do container:
+
+`php artisan test`

@@ -19,7 +19,7 @@ class UserMiddleware
     {
         $validator = Validator::make($request->all(), [
             'name' => 'required|regex:/^[a-zA-Z_]{4,15}$/',
-            'occupation' => 'exists:occupation_attributes,name'
+            'occupation' => 'required|exists:occupation_attributes,name'
         ]);
 
         if ($validator->fails()) {

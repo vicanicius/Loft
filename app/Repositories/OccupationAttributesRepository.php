@@ -3,7 +3,6 @@
 namespace App\Repositories;
 
 use App\Models\OccupationAttributes;
-use Illuminate\Support\Facades\DB;
 
 class OccupationAttributesRepository implements OccupationAttributesRepositoryInterface
 {

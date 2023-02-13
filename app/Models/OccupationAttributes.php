@@ -11,6 +11,8 @@ class OccupationAttributes extends Model
 
     protected $table = 'occupation_attributes';
 
+    public $timestamps = false;
+
     protected $fillable = [
         'id',
         'name',
@@ -19,8 +21,9 @@ class OccupationAttributes extends Model
         'dexterity',
         'intelligence',
         'attack',
-        'speed',
+        'speed'
     ];
+
 
     protected $appends = ['attack_description', 'speed_description'];
 

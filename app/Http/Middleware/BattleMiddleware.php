@@ -4,7 +4,6 @@ namespace App\Http\Middleware;
 
 use App\Models\User;
 use Closure;
-use Illuminate\Http\Request;
 
 class BattleMiddleware
 {
@@ -19,6 +18,10 @@ class BattleMiddleware
     {
         $user1 = User::find($request->route('userId1'));
         $user2 = User::find($request->route('userId2'));
+
+        if(!$user1 || !$user2) {
+            return response()->json(["message" => 'Um ou mais persoangem não foram encontrados.']);
+        }
 
         if ($user1->life_points == 0 || $user2->life_points == 0) {
             return response()->json(["message" => 'Um ou mais persoangem está sem vida.']);
